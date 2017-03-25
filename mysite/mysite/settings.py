@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['192.168.0.4']
 # Application definition
 
 INSTALLED_APPS = [
+    'shoppinglist.apps.ShoppinglistConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
