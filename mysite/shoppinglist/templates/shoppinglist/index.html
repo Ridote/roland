@@ -1,0 +1,10 @@
+{% if products %}
+    <ul>
+    {% for product in products %}
+        <li>{{ product.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+	<p>No products are available.</p>
+{% endif %}
+	<p><a href="{% url 'shoppinglist:newProduct' %}">Add new product</a></p>

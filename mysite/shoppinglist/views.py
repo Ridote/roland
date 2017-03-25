@@ -1,6 +1,13 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Product, User
 # Create your views here.
 
 def index(request):
-	return HttpResponse("Hello pi, you are the best")
+	products = Product.objects.order_by('-id')[:]
+	context = {'products': products}
+	return render(request, 'shoppinglist/index.html', context)
+
+def addProduct(request):
+	user = User.objects.order_by('-id')[1:]
+	context = {'user': user}
+	return render(request, 'shoppinglist/newProduct.html', context)
