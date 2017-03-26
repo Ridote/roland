@@ -1,4 +1,13 @@
 <h1>New Product</h1>
-
+{% if addingProduct %}
+Added {{quantity}} {{name}} by {{user.username}}
+{% endif %}
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
+<form action="{% url 'shoppinglist:addProduct' %}" method="post">
+{% csrf_token %}
+    <input type="number" name="quantity" id="quantity" value="0" min="0" max="10" />
+    <input type="text" name="name" id="name" value="" size="200" />
+    <input type="text" name="requesterName" id="requesterName" value="{{ userObject.username }}" size="60" disabled />
+    <input type="hidden" name="requesterId" id="requesterId" value="{{ userObject.user_id }}" />
+	<input type="submit" value="AddProduct" />
+</form>
