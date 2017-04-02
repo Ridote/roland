@@ -1,3 +1,15 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/bootstrap/css/bootstrap.min.css' %}" />
+<script src="{% static 'polls/bootstrap/js/bootstrap.min.js' %}"></script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+<div class="container">
+	<div class="row">
+		<div class="col min-height-200 background-blue">Bootstrap</div>
+		<div class="col min-height-200 background-red">is</div>
+		<div class="col min-height-200 background-green">working</div>
+	</div>
+</div>
 {% if latest_question_list %}
 	<ul>
 		{% for question in latest_question_list %}
