@@ -2,18 +2,25 @@
 {% block title %}Shopping list{% endblock %}
 {% block content %}
 <div class="container .font-console .font-sm">
+<table class="table" style="background-color: white; color: black">
+  <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th>Product</th>
+      <th>Uds</th>
+      <th>User</th>
+    </tr>
+  </thead>
+  <tbody>
 {% for product in products %}
-<div class="row">
-	<div class="col">
-    	{{ product.name }}
-    </div>
-    <div class="col">
-    	{{ product.quantity }}
-    </div>
-    <div class="col">
-    	{{ product.requester }}
-    </div>
-</div>
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ product.name }}</td>
+      <td>{{ product.quantity }}</td>
+      <td>{{ product.requester }}</td>
+    </tr>
 {% endfor %}
+  </tbody>
+</table>
 </div>
 {% endblock %}

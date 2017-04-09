@@ -1,7 +1,27 @@
 {% extends "shoppinglist/main_template.html" %}
 {% block title %}Shopping list{% endblock %}
+{% block products %}
+<li class="nav-item active">
+	<a class="nav-link" href="#">Add product <span class="sr-only">(current)</span></a>
+</li>
+{% endblock %}
 {% block content %}
-
-<form action
-
+<div class="row">
+	<div class="col"></div>
+	<div class="col">
+		<h2>New product</h2>
+		{{ form.non_field_errors }}
+		<form method="POST">{% csrf_token %}
+			{% for field in form %}
+		    <div class="form-group">
+				{{ field.errors }}
+				{{field.label_tag}}
+				{{ field }}
+			</div>
+			{% endfor %}
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+	<div class="col"></div>
+</div>
 {% endblock %}

@@ -6,19 +6,36 @@
    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=VT323" />
    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Aclonica" />
    <head>
-      
       <title>
          {% block title %}Page Title{% endblock %}
       </title>
-      
    </head>
-	
    <body>
-      <div class="container-fluid">
-         <div class="row" id="heading-title">
-            Shopping list
+      <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse mb-4">
+         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <a class="navbar-brand" href="#">Shopping list</a>
+         <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+               {% block index %}
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Home</a>
+               </li>
+               {% endblock %}
+               {% block products %}
+               <li class="nav-item">
+                  <a class="nav-link" href="#">View products</a>
+               </li>
+               {% endblock %}
+               {% block add %}
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Add product</a>
+               </li>
+               {% endblock %}
+            </ul>
          </div>
-      </div>
+      </nav>
       <div id="main-container">
       {% block content %}
          Body content
