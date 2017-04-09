@@ -1,0 +1,19 @@
+{% extends "shoppinglist/main_template.html" %}
+{% block title %}Shopping list{% endblock %}
+{% block content %}
+<div class="container .font-console .font-sm">
+{% for product in products %}
+<div class="row">
+	<div class="col">
+    	{{ product.name }}
+    </div>
+    <div class="col">
+    	{{ product.quantity }}
+    </div>
+    <div class="col">
+    	{{ product.requester }}
+    </div>
+</div>
+{% endfor %}
+</div>
+{% endblock %}
