@@ -4,7 +4,7 @@ body{
 }
 
 footer{
-    position: absolute;
+	position: fixed;
     margin: 0px !important;
     bottom: 0;
     width: 100%;
@@ -21,12 +21,19 @@ footer{
     font-size: 2em;	
 }
 #main-container{
-	width: 100%;
 	padding-top: 10px;
 }
 #footer-inner{
 	text-align: center;
     width: 100%;
+}
+
+.cancel-color{
+	color: #C10000;
+}
+
+.succes-color{
+	color: #039C00;
 }
 
 .font-console{
