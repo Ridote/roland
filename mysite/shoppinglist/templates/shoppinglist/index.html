@@ -21,7 +21,7 @@
     <tr>
       <th scope="row">{{ forloop.counter }}</th>
       <td>{{ product.name }}</td>
-      <td>{{ product.quantity }}</td>
+      <td>{{ product.quantity }}  {{ product.unity }}</td>
       <td>{{ product.requester }}</td>
       <td><a href="{% url 'shoppinglist:removeProduct' productId=product.id %}"><i class="fa fa-times cancel-color" aria-hidden="true"></i></a></td>
     </tr>

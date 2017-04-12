@@ -5,7 +5,7 @@ from .forms import ProductForm
 
 def index(request):
    me = User.objects.get(username='rido')
-   products = Product.objects.filter(requester = me)
+   products = Product.objects.filter(requester = me).order_by('name')
    return render(request, "shoppinglist/index.html", {"products": products})
 def addProduct(request):
 	if request.method == "POST":
