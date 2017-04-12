@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
-from .models import Product
+from .models import *
 from django.contrib.auth.models import User
-from .forms import ProductForm
+from .forms import *
 
 def index(request):
    me = User.objects.get(username='rido')
-   products = Product.objects.filter(requester = me).order_by('name')
+   products = Product.objects.filter(requester = me).order_by('predefinedProduct__name')
    return render(request, "shoppinglist/index.html", {"products": products})
 def addProduct(request):
 	if request.method == "POST":
@@ -13,13 +13,28 @@ def addProduct(request):
 		if form.is_valid():
 			product = form.save(commit=False)
 			product.requester = request.user
+			#product.predefinedProduct = PredefinedProduct.objects.filter(name=product.predefinedProduct)
 			product.save()
-			return redirect('shoppinglist:index')
+			return redirect('shoppinglist:addProduct')
 	else:
 		form = ProductForm()
 	return render(request, 'shoppinglist/addProduct.html', {"form": form})
+def adminCategory(request):
+	if request.method == "POST":
+		form = CategoryForm(request.POST)
+		if form.is_valid():
+			category = form.save(commit=False)
+			category.save()
+			return redirect('shoppinglist:adminCategory')
+	else:
+		form = CategoryForm()
+	categories = Category.objects.all().order_by('name')
+	return render(request, 'shoppinglist/adminCategory.html', {"form": form, "categories": categories})
 def removeProduct(request, productId):
-	product = Product.objects.filter(id = productId).delete()
+	Product.objects.filter(id = productId).delete()
 	return redirect('shoppinglist:index')
+def removeCategory(request, categoryId):
+	Category.objects.filter(id = categoryId).delete()
+	return redirect('shoppinglist:adminCategory')
 def aboutUs(request):
 	return render(request, 'shoppinglist/about.html', {})

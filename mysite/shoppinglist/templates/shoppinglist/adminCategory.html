@@ -1,13 +1,13 @@
 {% extends "shoppinglist/main_template.html" %}
 {% block title %}Shopping list{% endblock %}
-{% block add %}
+{% block adminCategory %}
 <li class="nav-item active">
-	<a class="nav-link" href="#">Add product <span class="sr-only">(current)</span></a>
+	<a class="nav-link" href="#">Categories <span class="sr-only">(current)</span></a>
 </li>
 {% endblock %}
 {% block content %}
 <div class="row">
-	<h2>Add product</h2>
+	<h2>Categories</h2>
 </div>
 {% if form.errors %}
     {% for field in form %}
@@ -31,25 +31,30 @@
 {% endif %}
 {{ form.non_field_errors }}
 <form method="POST">{% csrf_token %}
-	<div class="row">
-		<div class="col">
-			<div class="form-group">
-				{{ form.predefinedProduct.label_tag }}
-				{{ form.predefinedProduct }}
-			</div>
-		</div>
-		<div class="col">
-
-			    <div class="form-group">
-					{{ form.quantity.label_tag }}
-					{{ form.quantity }}
-				</div>
-				<div class="form-group">
-					{{ form.unit.label_tag }}
-					{{ form.unit }}
-				</div>
-				<button type="submit" class="btn btn-primary">Submit</button>
-		</div>
+	<div class="form-group">
+		{{ form.name.label_tag }}
+		{{ form.name }}
 	</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<div class="row">
+	<table class="table" style="background-color: white; color: black">
+	  <thead class="thead-inverse">
+	    <tr>
+	      <th>#</th>
+	      <th>Category name</th>
+	      <th></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	{% for category in categories %}
+	    <tr>
+	      <th scope="row">{{ forloop.counter }}</th>
+	      <td>{{ category.name }}</td>
+	      <td><a href="{% url 'shoppinglist:removeCategory' categoryId=category.id %}"><i class="fa fa-times cancel-color" aria-hidden="true"></i></a></td>
+	    </tr>
+	{% endfor %}
+	  </tbody>
+	</table>
+</div>
 {% endblock %}

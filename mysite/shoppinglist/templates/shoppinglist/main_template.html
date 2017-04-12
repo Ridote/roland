@@ -1,5 +1,6 @@
 <html>
    {% load static %}
+   <script src="{% static 'shoppinglist/jquery/jquery.js' %}"></script>
    <link rel="stylesheet" type="text/css" href="{% static 'shoppinglist/bootstrap/css/bootstrap.min.css' %}" />
    <script src="{% static 'shoppinglist/bootstrap/js/bootstrap.min.js' %}"></script>
    <link rel="stylesheet" href="{% static 'shoppinglist/font-awesome/css/font-awesome.min.css' %}">
@@ -27,6 +28,11 @@
                {% block add %}
                <li class="nav-item">
                   <a class="nav-link" href="{% url 'shoppinglist:addProduct' %}">Add product</a>
+               </li>
+               {% endblock %}
+               {% block adminCategory %}
+               <li class="nav-item">
+                  <a class="nav-link" href="{% url 'shoppinglist:adminCategory' %}">Categories</a>
                </li>
                {% endblock %}
                {% block about %}

@@ -1,8 +1,9 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Product, Unity, PredefinedProduct
+from .models import *
 
 admin.site.register(Product)
 admin.site.register(PredefinedProduct)
-admin.site.register(Unity)
+admin.site.register(Unit)
+admin.site.register(Category)

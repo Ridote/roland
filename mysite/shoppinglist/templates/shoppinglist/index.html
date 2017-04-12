@@ -11,7 +11,8 @@
     <tr>
       <th>#</th>
       <th>Product</th>
-      <th>Uds</th>
+      <th>Quantity</th>
+      <th>Category</th>
       <th>User</th>
       <th></th>
     </tr>
@@ -20,8 +21,9 @@
 {% for product in products %}
     <tr>
       <th scope="row">{{ forloop.counter }}</th>
-      <td>{{ product.name }}</td>
-      <td>{{ product.quantity }}  {{ product.unity }}</td>
+      <td>{{ product.predefinedProduct.name }}</td>
+      <td>{{ product.quantity }}  {{ product.unit }}</td>
+      <td>{{ product.predefinedProduct.category }}</td>
       <td>{{ product.requester }}</td>
       <td><a href="{% url 'shoppinglist:removeProduct' productId=product.id %}"><i class="fa fa-times cancel-color" aria-hidden="true"></i></a></td>
     </tr>
