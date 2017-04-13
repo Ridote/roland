@@ -25,7 +25,7 @@ SECRET_KEY = '0w15!0d6w#eu$7#*ii#qnhxsjzz^y)-dy&%k%)enyo11mqhm*j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.4', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['192.168.0.4', 'localhost', '127.0.0.1', '192.168.1.22']
 
 
 # Application definition
@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['192.168.0.4', 'localhost', '127.0.0.1']
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'shoppinglist.apps.ShoppinglistConfig',
+    'roland.apps.RolandConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

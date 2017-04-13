@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from .forms import *
 
 def index(request):
-   me = User.objects.get(username='rido')
+   me = User.objects.get(username='Gloria')
    products = Product.objects.filter(requester = me).order_by('predefinedProduct__category', 'predefinedProduct__name')
    return render(request, "shoppinglist/index.html", {"products": products})
 def addProduct(request):

@@ -2,7 +2,7 @@
 {% block title %}Shopping list{% endblock %}
 {% block adminProductType %}
 <li class="nav-item active">
-	<a class="nav-link" href="#">Product Types <span class="sr-only">(current)</span></a>
+	<a class="nav-link" href="{% url 'shoppinglist:adminProductType' %}">Product Types <span class="sr-only">(current)</span></a>
 </li>
 {% endblock %}
 {% block content %}

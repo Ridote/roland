@@ -1,10 +1,11 @@
 <html>
    {% load static %}
-   <script src="{% static 'shoppinglist/jquery/jquery.js' %}"></script>
-   <link rel="stylesheet" type="text/css" href="{% static 'shoppinglist/bootstrap/css/bootstrap.min.css' %}" />
-   <script src="{% static 'shoppinglist/bootstrap/js/bootstrap.min.js' %}"></script>
-   <link rel="stylesheet" href="{% static 'shoppinglist/font-awesome/css/font-awesome.min.css' %}">
-   <link rel="stylesheet" type="text/css" href="{% static 'shoppinglist/custom.css' %}" />
+   <script src="{% static 'roland/jquery/jquery.js' %}"></script>
+   <link rel="stylesheet" type="text/css" href="{% static 'roland/bootstrap/css/bootstrap.min.css' %}" />
+   <script src="{% static 'roland/tether/js/tether.min.js' %}"></script>
+   <script src="{% static 'roland/bootstrap/js/bootstrap.min.js' %}"></script>
+   <link rel="stylesheet" href="{% static 'roland/font-awesome/css/font-awesome.min.css' %}">
+   <link rel="stylesheet" type="text/css" href="{% static 'roland/custom.css' %}" />
    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=VT323" />
    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Aclonica" />
    <head>
@@ -13,6 +14,11 @@
       </title>
    </head>
    <body>
+      <div id="banner" class="container-fluid" alt="Banner">
+         <div>
+         Roland
+         </div>
+      </div>
       <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse mb-4">
          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -22,27 +28,27 @@
             <ul class="navbar-nav mr-auto">
                {% block index %}
                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'shoppinglist:index' %}">Home</a>
+                  <a class="nav-link" href="#">Home</a>
                </li>
                {% endblock %}
                {% block add %}
                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'shoppinglist:addProduct' %}">Add product</a>
+                  <a class="nav-link" href="#">Add product</a>
                </li>
                {% endblock %}
                {% block adminCategory %}
                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'shoppinglist:adminCategory' %}">Categories</a>
+                  <a class="nav-link" href="#">Categories</a>
                </li>
                {% endblock %}
                {% block adminProductType %}
                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'shoppinglist:adminProductType' %}">Product Types</a>
+                  <a class="nav-link" href="#">Product Types</a>
                </li>
                {% endblock %}
                {% block about %}
                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'shoppinglist:aboutUs' %}">About us</a>
+                  <a class="nav-link" href="#">About us</a>
                </li>
                {% endblock %}
             </ul>
@@ -53,10 +59,8 @@
          Body content
       {% endblock %}
       </div>
-      <div id="footer-separator">
-      </div>
       <footer class="row">
-         <span id="footer-inner" class="text-muted font-console font-sm">Shopping List. By Daniel Ridao and Glori Bunny.</span>
+         <span id="footer-inner" class="text-muted font-console font-sm">Roland, you rol management web page. By Daniel Ridao.</span>
       </footer>
    </body>
 </html>

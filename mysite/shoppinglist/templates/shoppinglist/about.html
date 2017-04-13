@@ -2,7 +2,7 @@
 {% block title %}Shopping list{% endblock %}
 {% block about %}
 <li class="nav-item active">
-	<a class="nav-link" href="#">About us <span class="sr-only">(current)</span></a>
+	<a class="nav-link" href="{% url 'shoppinglist:aboutUs' %}">About us <span class="sr-only">(current)</span></a>
 </li>
 {% endblock %}
 {% block content %}
