@@ -35,6 +35,11 @@
                   <a class="nav-link" href="{% url 'shoppinglist:adminCategory' %}">Categories</a>
                </li>
                {% endblock %}
+               {% block adminProductType %}
+               <li class="nav-item">
+                  <a class="nav-link" href="{% url 'shoppinglist:adminProductType' %}">Product Types</a>
+               </li>
+               {% endblock %}
                {% block about %}
                <li class="nav-item">
                   <a class="nav-link" href="{% url 'shoppinglist:aboutUs' %}">About us</a>

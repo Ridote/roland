@@ -40,15 +40,14 @@ class CategoryForm(forms.ModelForm):
 			'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter name', 'min': 3, 'max': MODEL_CATEGORY_NAME_LENGTH})
 		}
 class ProductTypeForm(forms.ModelForm):
-	name = forms.ModelChoiceField(queryset=PredefinedProduct.objects.all(), widget=forms.Select(attrs={'class': 'form-control'}), empty_label=None)
-	unit = forms.ModelChoiceField(queryset=Unit.objects.all(), widget=forms.Select(attrs={'class': 'form-control'}), empty_label=None)
+	category = forms.ModelChoiceField(queryset=Category.objects.all(), widget=forms.Select(attrs={'class': 'form-control'}), empty_label=None)
 	def __init__(self, *args, **kwargs):
 		super(ProductTypeForm, self).__init__(*args, **kwargs)
 		self.fields['name'].label = "Product name"
 		self.fields['category'].label = "Product category"
 	class Meta:
-		model = Product
-		fields = ('name', 'quantity', 'unit')
+		model = PredefinedProduct
+		fields = ('name', 'category')
 		widgets = {
 			'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter name', 'min': 3, 'max': 80})
 		}

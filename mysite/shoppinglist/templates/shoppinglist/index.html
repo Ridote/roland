@@ -6,6 +6,7 @@
 </li>
 {% endblock %}
 {% block content %}
+{% load humanize %}
 <table class="table" style="background-color: white; color: black">
   <thead class="thead-inverse">
     <tr>
@@ -22,7 +23,7 @@
     <tr>
       <th scope="row">{{ forloop.counter }}</th>
       <td>{{ product.predefinedProduct.name }}</td>
-      <td>{{ product.quantity }}  {{ product.unit }}</td>
+      <td>{{ product.quantity|intcomma }}  {{ product.unit }}</td>
       <td>{{ product.predefinedProduct.category }}</td>
       <td>{{ product.requester }}</td>
       <td><a href="{% url 'shoppinglist:removeProduct' productId=product.id %}"><i class="fa fa-times cancel-color" aria-hidden="true"></i></a></td>

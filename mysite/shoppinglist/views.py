@@ -5,7 +5,7 @@ from .forms import *
 
 def index(request):
    me = User.objects.get(username='rido')
-   products = Product.objects.filter(requester = me).order_by('predefinedProduct__name')
+   products = Product.objects.filter(requester = me).order_by('predefinedProduct__category', 'predefinedProduct__name')
    return render(request, "shoppinglist/index.html", {"products": products})
 def addProduct(request):
 	if request.method == "POST":
@@ -30,11 +30,25 @@ def adminCategory(request):
 		form = CategoryForm()
 	categories = Category.objects.all().order_by('name')
 	return render(request, 'shoppinglist/adminCategory.html', {"form": form, "categories": categories})
+def adminProductType(request):
+	if request.method == "POST":
+		form = ProductTypeForm(request.POST)
+		if form.is_valid():
+			productType = form.save(commit=False)
+			productType.save()
+			return redirect('shoppinglist:adminProductType')
+	else:
+		form = ProductTypeForm()
+	products = PredefinedProduct.objects.all().order_by('name')
+	return render(request, 'shoppinglist/adminProductType.html', {"form": form, "products": products})
 def removeProduct(request, productId):
 	Product.objects.filter(id = productId).delete()
 	return redirect('shoppinglist:index')
 def removeCategory(request, categoryId):
 	Category.objects.filter(id = categoryId).delete()
 	return redirect('shoppinglist:adminCategory')
+def removeProductType(request, productTypeId):
+	PredefinedProduct.objects.filter(id = productTypeId).delete()
+	return redirect('shoppinglist:adminProductType')
 def aboutUs(request):
 	return render(request, 'shoppinglist/about.html', {})
