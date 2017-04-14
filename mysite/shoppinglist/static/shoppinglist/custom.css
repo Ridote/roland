@@ -4,7 +4,6 @@ body{
 	background-attachment: fixed;
 	color: white;
 }
-
 footer{
 	position: fixed;
     margin: 0px !important;
@@ -51,4 +50,12 @@ footer{
 
 .font-md{
 	font-size: 16;
+}
+
+.underlined{
+	border-bottom: 2px solid;
+}
+
+.separator-sm{
+	height: 10px;
 }

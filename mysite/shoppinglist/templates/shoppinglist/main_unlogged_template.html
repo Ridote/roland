@@ -20,43 +20,7 @@
          <a class="navbar-brand" href="#">Shopping list</a>
          <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-               {% block index %}
-               <li class="nav-item">
-                  <a class="nav-link" href="{% url 'shoppinglist:index' %}">Home</a>
-               </li>
-               {% endblock %}
-               {% block add %}
-               <li class="nav-item">
-                  <a class="nav-link" href="{% url 'shoppinglist:addProduct' %}">Add product</a>
-               </li>
-               {% endblock %}
-               {% block adminCategory %}
-               <li class="nav-item">
-                  <a class="nav-link" href="{% url 'shoppinglist:adminCategory' %}">Categories</a>
-               </li>
-               {% endblock %}
-               {% block adminProductType %}
-               <li class="nav-item">
-                  <a class="nav-link" href="{% url 'shoppinglist:adminProductType' %}">Product Types</a>
-               </li>
-               {% endblock %}
-               {% block recipes %}
-               <li class="nav-item">
-                  <a class="nav-link" href="{% url 'shoppinglist:recipes' %}">Recipes</a>
-               </li>
-               {% endblock %}
-               {% block about %}
-               <li class="nav-item">
-                  <a class="nav-link" href="{% url 'shoppinglist:aboutUs' %}">About us</a>
-               </li>
-               {% endblock %}
-               <li class="nav-item">
-                  <a class="nav-link" href="{% url 'shoppinglist:logout' %}">Logout</a>
-               </li>
             </ul>
-            <span class="navbar-text">
-               {{ user.username|title }}
-            </span>
          </div>
       </nav>
       <div id="main-container" class="container">

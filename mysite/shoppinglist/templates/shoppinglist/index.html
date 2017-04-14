@@ -13,8 +13,7 @@
       <th>#</th>
       <th>Product</th>
       <th>Quantity</th>
-      <th>Category</th>
-      <th>User</th>
+      <th>Comment</th>
       <th></th>
     </tr>
   </thead>
@@ -24,8 +23,7 @@
       <th scope="row">{{ forloop.counter }}</th>
       <td>{{ product.predefinedProduct.name }}</td>
       <td>{{ product.quantity|intcomma }}  {{ product.unit }}</td>
-      <td>{{ product.predefinedProduct.category }}</td>
-      <td>{{ product.requester }}</td>
+      <td>{{ product.comment }}</td>
       <td><a href="{% url 'shoppinglist:removeProduct' productId=product.id %}"><i class="fa fa-times cancel-color" aria-hidden="true"></i></a></td>
     </tr>
 {% endfor %}

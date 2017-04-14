@@ -1,5 +1,5 @@
 from django import forms
-
+from django.contrib.auth.models import User
 from .models import *
 from .constants import *
 
@@ -23,11 +23,13 @@ class ProductForm(forms.ModelForm):
 		self.fields['quantity'].label = "Product quantity"
 		self.fields['predefinedProduct'].label = "Product name"
 		self.fields['unit'].label = "Product meassurement unit"
+		self.fields['comment'].label = "Comment"
 	class Meta:
 		model = Product
-		fields = ('predefinedProduct', 'quantity', 'unit')
+		fields = ('predefinedProduct', 'quantity', 'unit', 'comment')
 		widgets = {
-			'quantity': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter quantity', 'value': MODEL_PRODUCT_MIN_QUANTITY,'min': MODEL_PRODUCT_MIN_QUANTITY, 'max': MODEL_PRODUCT_MAX_QUANTITY})
+			'quantity': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter quantity', 'value': MODEL_PRODUCT_MIN_QUANTITY,'min': MODEL_PRODUCT_MIN_QUANTITY, 'max': MODEL_PRODUCT_MAX_QUANTITY}),
+			'comment': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Comment', 'max': MODEL_PRODUCT_MAX_COMMENT})
 		}
 class CategoryForm(forms.ModelForm):
 	def __init__(self, *args, **kwargs):
@@ -49,5 +51,15 @@ class ProductTypeForm(forms.ModelForm):
 		model = PredefinedProduct
 		fields = ('name', 'category')
 		widgets = {
-			'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter name', 'min': 3, 'max': 80})
+			'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter name', 'min': 3, 'max': MODEL_PREDEFINED_PRODUCT_NAME_LENGTH})
+		}
+class RecipesForm(forms.ModelForm):
+	def __init__(self, *args, **kwargs):
+		super(RecipesForm, self).__init__(*args, **kwargs)
+		self.fields['link'].label = "Recipe link"
+	class Meta:
+		model = Recipe
+		fields = ('link',)
+		widgets = {
+			'link': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter name', 'min': 3, 'max': MODEL_RECIPE_LINK_LENGTH})
 		}

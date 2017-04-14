@@ -18,8 +18,10 @@ class Product(models.Model):
 	quantity = models.IntegerField(default=0)
 	requester = models.ForeignKey('auth.User', on_delete=models.CASCADE)
 	unit = models.ForeignKey(Unit, on_delete=models.CASCADE, default=0)
-	def create(cls, predefinedProduct, quantity, requester, unit):
-		product = cls(predefinedProduct=predefinedProduct, quantity=quantity, requester=requester, unit= unit)
-		return product
+	comment = models.CharField(max_length=MODEL_PRODUCT_MAX_COMMENT, default='')
 	def __str__(self):
 		return self.predefinedProduct.name + ':\t' + str(self.quantity) + " " + str(self.unit.name)
+class Recipe(models.Model):
+	link = models.CharField(max_length=MODEL_PRODUCT_MAX_LINK, default='')
+	def __str__(self):
+		return self.link
