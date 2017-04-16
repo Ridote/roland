@@ -26,46 +26,10 @@
          <a class="navbar-brand" href="#">Roland</a>
          <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-               {% block index %}
                <li class="nav-item">
                   <a class="nav-link" href="{% url 'roland:index' %}">Home</a>
                </li>
-               {% endblock %}
-               {% if user.is_authenticated %}
-                  {% block newPublication %}
-                  <li class="nav-item">
-                     <a class="nav-link" href="{% url 'roland:newPublication' %}">New Publication</a>
-                  </li>
-                  {% endblock %}
-                  {% block characters %}
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">Characters</a>
-                  </li>
-                  {% endblock %}
-                  {% block games %}
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">Games</a>
-                  </li>
-                  {% endblock %}
-                  {% block Profile %}
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">Profile</a>
-                  </li>
-                  {% endblock %}
-                  {% block about %}
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">About us</a>
-                  </li>
-                  {% endblock %}
-               {% endif %}
             </ul>
-            <span class="navbar-text menu-right">
-               {% if user.is_authenticated %}
-                  {{ user.username|title }}(<a href="{% url 'roland:logout' %}">logout</a>)
-               {% else %}
-                  <a class="nav-link" href="{% url 'roland:login' %}">login</a>
-               {% endif %}
-            </span>
          </div>
       </nav>
       <div id="main-container" class="container">
@@ -73,10 +37,8 @@
          Body content
       {% endblock %}
       </div>
-      <div id="footer-separator">
-      </div>
-      <footer class="row gradient1">
-         <span id="footer-inner" class="text-muted font-console font-sm">Roland, you rol management web page. By Daniel Ridao.</span>
+      <footer class="row">
+         <span id="footer-inner" class="gradient1 text-muted font-console font-sm">Roland, you rol management web page. By Daniel Ridao.</span>
       </footer>
    </body>
 </html>

@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'polls.apps.PollsConfig',
     'shoppinglist.apps.ShoppinglistConfig',
     'roland.apps.RolandConfig',
+    'django_summernote',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -121,3 +122,30 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+SUMMERNOTE_CONFIG = {
+    # Using SummernoteWidget - iframe mode
+    'iframe': True,  # or set False to use SummernoteInplaceWidget - no iframe mode
+    
+    # Using Summernote Air-mode
+    'airMode': False,
+
+    # Use native HTML tags (`<b>`, `<i>`, ...) instead of style attributes
+    # (Firefox, Chrome only)
+    'styleWithTags': True,
+
+    # Set text direction : 'left to right' is default.
+    'direction': 'ltr',
+
+    # Change editor size
+    'width': '100%',
+    'height': '480',
+
+    # Codemirror as codeview
+    'codemirror': {
+            # Please visit http://summernote.org/examples/#codemirror-as-codeview
+            'theme': 'cyborg',
+    },
+
+}

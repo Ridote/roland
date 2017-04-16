@@ -76,25 +76,9 @@ def removeRecipe(request, recipeId):
 @login_required(login_url=LOGIN_URL)
 def aboutUs(request):
 	return render(request, 'shoppinglist/about.html', {})
-def signIn(request):
-	if request.method == "POST":
-		form = SignInForm(request.POST)
-		if form.is_valid():
-			user = authenticate(username=request.user.username, password=request.user.password)
-			if user is not None:
-				print("YES")
-				pass
-			else:
-				print("NO")
-				pass
-			return redirect('shoppinglist:index')
-	else:
-		form = SignInForm()
-	return render(request, 'shoppinglist/signIn.html', {"form": form})
 def login(request):
 	if(request.user.is_authenticated):
 		return redirect('shoppinglist:index')
-	print(request.user)
 	if request.method == 'POST':
 		user = authenticate(username = request.POST['username'], password = request.POST['password'])
 		if user:
