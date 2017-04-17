@@ -1,4 +1,30 @@
 {% extends "roland/basic_template.html" %}
+{% block bodyDefinition %}
+   <body onload="currentDateTime()">
+{% endblock %}
+{% block javascriptFunctions %}
+<script type="text/javascript">
+function currentDateTime(){
+	var datetime = new Date();
+	var hours = datetime.getHours() < 10 ? '0'+datetime.getHours() : datetime.getHours()
+	var minutes = datetime.getMinutes() < 10 ? '0'+datetime.getMinutes() : datetime.getMinutes()
+    id_time.value = (hours + ":" + minutes);
+
+	var dd = datetime.getDate();
+	var mm = datetime.getMonth()+1; //January is 0!
+
+	var yyyy = datetime.getFullYear();
+	if(dd<10){
+	    dd='0'+dd;
+	} 
+	if(mm<10){
+	    mm='0'+mm;
+	} 
+	var today = yyyy+'-'+mm+'-'+dd;
+	id_date.value = today;
+} 
+</script>
+{% endblock %}
 {% block title %}Roland{% endblock %}
 {% block newPublication %}
 	<li class="nav-item active">

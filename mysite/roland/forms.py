@@ -1,5 +1,6 @@
 from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 from django import forms
+from datetime import datetime
 from .models import *
 '''
 # Activamos el editor Summernote en campos especificos.

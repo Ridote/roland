@@ -13,7 +13,9 @@
          {% block title %}Page Title{% endblock %}
       </title>
    </head>
+   {% block bodyDefinition %}
    <body>
+   {% endblock %}
       <div id="banner" class="container-fluid gradient1" alt="Banner">
          <div>
             Rol Management Tool
@@ -78,5 +80,8 @@
       <footer class="row gradient1">
          <span id="footer-inner" class="text-muted font-console font-sm">Roland, you rol management web page. By Daniel Ridao.</span>
       </footer>
+      {% block javascriptFunctions %}
+         <!-- Javascript functions -->
+      {% endblock %}
    </body>
 </html>

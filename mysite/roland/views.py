@@ -7,7 +7,7 @@ from .models import *
 from .forms import *
 from .constants import INDEX_PUB_PER_PAGES
 def index(request):
-	publications = Publication.objects.order_by('-pub_date')[:INDEX_PUB_PER_PAGES]
+	publications = Publication.objects.filter(pub_date__lte = datetime.now()).order_by('-pub_date')[:INDEX_PUB_PER_PAGES]
 	return render(request, "roland/index.html", {'publications': publications})
 def newPublication(request):
 	if request.method == "POST":

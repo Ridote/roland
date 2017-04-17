@@ -8,6 +8,6 @@ class Publication(models.Model):
 	pub_date = models.DateTimeField('date published')
 	author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
 	def published(self):
-		return pub_date >= date.today()
+		return pub_date >= datetime.now()
 	def __str__(self):
-		return '(' + self.author.username + ') ' + self.title
+		return '(' + self.author.username + ') ' + self.title + '. ' + str(self.pub_date)
