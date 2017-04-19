@@ -17,7 +17,6 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-	url(r'^polls/', include('polls.urls')),
 	url(r'^shoppinglist/', include('shoppinglist.urls', namespace='shoppinglist', app_name='shoppinglist')),
     url(r'^roland/', include('roland.urls', namespace='roland', app_name='roland')),
     url(r'^summernote/', include('django_summernote.urls')),

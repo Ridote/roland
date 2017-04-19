@@ -30,7 +30,6 @@ ALLOWED_HOSTS = ['192.168.0.4', 'localhost', '127.0.0.1', '192.168.1.22']
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
     'shoppinglist.apps.ShoppinglistConfig',
     'roland.apps.RolandConfig',
     'django_summernote',
