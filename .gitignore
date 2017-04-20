@@ -1,4 +1,3 @@
-*.sqlite3
 *.pyc
 mysite/shoppinglist/migrations/
 mysite/roland/migrations/
