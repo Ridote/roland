@@ -35,3 +35,6 @@ def login(request):
 			return render(request, 'roland/login.html', {'error': error})
 	else:
 		return render(request, 'roland/login.html', {})
+@login_required
+def manual(request):
+	return render(request, 'roland/manual.html', {})

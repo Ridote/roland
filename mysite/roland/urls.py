@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^login/$', views.login, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': '/roland/'}, name='logout'),
     url(r'^newPublication/$', views.newPublication, name='newPublication'),
+    url(r'^manual/$', views.manual, name='manual'),
 ]
