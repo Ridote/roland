@@ -1,5 +1,16 @@
 {% extends "roland/basic_template.html" %}
+{% load roland_template_tags %}
 {% block title %}Roland{% endblock %}
 {% block content %}
-asd
+<h1>{{manual.title}}</h1>
+<h5>By {{manual.author}}</h5>
+<hr/>
+{% for category in categories %}
+	<h3>{{category.name}}</h3>
+	{{category.content}}
+	{% for subcategory in subcategories|get:forloop.counter0 %}
+		<h4>{{subcategory.name}}</h4>
+		{{subcategory.content}}
+	{% endfor %}
+{% endfor %}
 {% endblock %}
