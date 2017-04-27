@@ -1,3 +1,5 @@
 *.pyc
 mysite/roland/migrations/*
 mysite/shoppinglist/migrations/*
+mysite/mysite/__pycache__/*
+*.sqlite3

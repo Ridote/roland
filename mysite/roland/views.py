@@ -37,7 +37,9 @@ def login(request):
 		return render(request, 'roland/login.html', {})
 @login_required
 def manual(request):
-	manual = Manual.objects.filter(title='Roland')[0]
+	manual = Manual.objects.filter(title='Roland')
+	if(len(manual) > 0):
+		manual = manual[0]
 	categories = Category.objects.filter(manual=manual, superCategory__isnull=True)
 	subcategories = []
 	for category in categories:
