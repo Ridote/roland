@@ -1,0 +1,96 @@
+body{
+	background: white url("images/background.jpg") right bottom;
+	background-repeat: repeat;
+	background-attachment: fixed;
+	color: white;
+}
+#logo{
+	background: url('images/logo.png') right bottom;
+	background-repeat: no-repeat;
+}
+#banner{
+	background: url('images/stadium.jpg') right bottom;
+	line-height: 100px;
+}
+
+#banner div{
+	vertical-align: middle;
+	color: white;
+	font-size: 28px;
+}
+
+footer{
+	position: fixed;
+	background-color: black;
+	padding-top: 6px;
+    margin: 0px !important;
+    bottom: 0;
+    width: 100%;
+    height: 36px;
+}
+
+#footer-inner{
+	text-align: center;
+    width: 100%;
+    color: white !important;
+}
+
+.gradient1{
+	background: rgba(0,31,6,1);
+	background: -moz-linear-gradient(top, rgba(0,31,6,1) 0%, rgba(0,66,15,1) 24%, rgba(1,82,20,1) 51%, rgba(0,71,13,1) 79%, rgba(0,41,8,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,31,6,1)), color-stop(24%, rgba(0,66,15,1)), color-stop(51%, rgba(1,82,20,1)), color-stop(79%, rgba(0,71,13,1)), color-stop(100%, rgba(0,41,8,1)));
+	background: -webkit-linear-gradient(top, rgba(0,31,6,1) 0%, rgba(0,66,15,1) 24%, rgba(1,82,20,1) 51%, rgba(0,71,13,1) 79%, rgba(0,41,8,1) 100%);
+	background: -o-linear-gradient(top, rgba(0,31,6,1) 0%, rgba(0,66,15,1) 24%, rgba(1,82,20,1) 51%, rgba(0,71,13,1) 79%, rgba(0,41,8,1) 100%);
+	background: -ms-linear-gradient(top, rgba(0,31,6,1) 0%, rgba(0,66,15,1) 24%, rgba(1,82,20,1) 51%, rgba(0,71,13,1) 79%, rgba(0,41,8,1) 100%);
+	background: linear-gradient(to bottom, rgba(0,31,6,1) 0%, rgba(0,66,15,1) 24%, rgba(1,82,20,1) 51%, rgba(0,71,13,1) 79%, rgba(0,41,8,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001f06', endColorstr='#002908', GradientType=0 );
+}
+
+.gradient2{
+background: rgba(0,0,0,1);
+background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(15,15,15,1) 22%, rgba(26,26,26,1) 63%, rgba(0,0,0,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,1)), color-stop(22%, rgba(15,15,15,1)), color-stop(63%, rgba(26,26,26,1)), color-stop(100%, rgba(0,0,0,1)));
+background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(15,15,15,1) 22%, rgba(26,26,26,1) 63%, rgba(0,0,0,1) 100%);
+background: -o-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(15,15,15,1) 22%, rgba(26,26,26,1) 63%, rgba(0,0,0,1) 100%);
+background: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(15,15,15,1) 22%, rgba(26,26,26,1) 63%, rgba(0,0,0,1) 100%);
+background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(15,15,15,1) 22%, rgba(26,26,26,1) 63%, rgba(0,0,0,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
+}
+
+#footer-separator{
+	height: 90px;
+}
+
+.menu-right a{
+	padding: 0px;
+}
+
+.form-blank-label{
+	min-height: 32px;
+}
+
+.publication{
+	margin-bottom: 20px;
+}
+
+.publication .pub_title{
+	color: #007b68;
+	border-bottom: 2px solid;
+}
+
+.separator-xs{
+	margin-bottom: 2px;
+}
+
+.separator-sm{
+	margin-bottom: 5px;
+}
+
+.underlined{
+	border-bottom: 2px solid;
+}
+
+.background-white {
+	background-color: white;
+	color: black;
+}

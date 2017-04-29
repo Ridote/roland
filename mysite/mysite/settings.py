@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['192.168.0.4', 'localhost', '127.0.0.1', '94.195.81.178']
 INSTALLED_APPS = [
     'shoppinglist.apps.ShoppinglistConfig',
     'roland.apps.RolandConfig',
+    'pachangapp.apps.PachangappConfig',
     'django_summernote',
     'django.contrib.admin',
     'django.contrib.auth',

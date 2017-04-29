@@ -1,0 +1,59 @@
+{% extends "pachangapp/basic_template.html" %}
+{% load pachangapp_template_tags %}
+{% block title %}PachangAPP{% endblock %}
+{% block index %}
+<li class="nav-item active">
+  <a class="nav-link" href="{% url 'pachangapp:index' %}">Home <span class="sr-only">(current)</span></a>
+</li>
+{% endblock %}
+{% block content %}
+	{% for match in matches %}
+		<div class="row">
+			<div class="col-12">
+				{{match.date}}	{{match.duration}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-6">
+				<table class="table table-striped" style="background-color: white;">
+				  <thead class="thead-inverse">
+				    <tr>
+				      <th>#</th>
+				      <th>Username</th>
+				      <th>Known as</th>
+				    </tr>
+				  </thead>
+				  <tbody class="background-white">
+				  	{% for player in match.team_home|all %}
+				    <tr>
+				      <th scope="row">{{forloop.counter}}</th>
+				      <td>{{player.username}}</td>
+				      <td>Gacela Gordon</td>
+				    </tr>
+				    {% endfor %}
+				  </tbody>
+				</table>
+			</div>
+			<div class="col-6">
+				<table class="table table-striped" style="background-color: white;">
+				  <thead class="thead-inverse">
+				    <tr>
+				      <th>#</th>
+				      <th>Username</th>
+				      <th>Known as</th>
+				    </tr>
+				  </thead>
+				  <tbody class="background-white">
+				  	{% for player in match.team_visitant|all %}
+				    <tr>
+				      <th scope="row">{{forloop.counter}}</th>
+				      <td>{{player.username}}</td>
+				      <td>Gacela Gordon</td>
+				    </tr>
+				    {% endfor %}
+				  </tbody>
+				</table>
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}

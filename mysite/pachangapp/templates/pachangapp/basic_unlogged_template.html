@@ -1,0 +1,44 @@
+<html>
+   {% load static %}
+   <script src="{% static 'pachangapp/jquery/jquery.js' %}"></script>
+   <link rel="stylesheet" type="text/css" href="{% static 'pachangapp/bootstrap/css/bootstrap.min.css' %}" />
+   <script src="{% static 'pachangapp/tether/js/tether.min.js' %}"></script>
+   <script src="{% static 'pachangapp/bootstrap/js/bootstrap.min.js' %}"></script>
+   <link rel="stylesheet" href="{% static 'pachangapp/font-awesome/css/font-awesome.min.css' %}">
+   <link rel="stylesheet" type="text/css" href="{% static 'pachangapp/custom.css' %}" />
+   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=VT323" />
+   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Aclonica" />
+   <head>
+      <title>
+         {% block title %}Page Title{% endblock %}
+      </title>
+   </head>
+   <body>
+      <div id="banner" class="container-fluid gradient1" alt="Banner">
+         <div>
+            PachangAPP
+         </div>
+      </div>
+      <nav class="gradient2 navbar navbar-toggleable-md navbar-inverse bg-inverse mb-4">
+         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <a class="navbar-brand" href="#">PachangAPP</a>
+         <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item">
+                  <a class="nav-link" href="{% url 'pachangapp:index' %}">Home</a>
+               </li>
+            </ul>
+         </div>
+      </nav>
+      <div id="main-container" class="container">
+      {% block content %}
+         Body content
+      {% endblock %}
+      </div>
+      <footer class="row gradient3">
+         <span id="footer-inner" class="gradient1 text-muted font-console font-sm">PachangAPP, for you noobs that think you are good at playing football, you are not. By Daniel Ridao.</span>
+      </footer>
+   </body>
+</html>
