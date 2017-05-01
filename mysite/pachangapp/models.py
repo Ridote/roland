@@ -27,6 +27,11 @@ class User(models.Model):
 	stats = models.OneToOneField(Stats, on_delete=models.CASCADE)
 	known_as = models.CharField(max_length=MODEL_USER_KNOWN_AS, default="")
 	groups = models.ManyToManyField(Group)
+	country = models.CharField(
+		max_length = 2,
+        choices = MODEL_USER_COUNTRIES,
+        default = 'ND'
+    )
 	def __str__(self):
 		return self.user.username.title() + " " + self.known_as
 class Match(models.Model):
@@ -34,7 +39,7 @@ class Match(models.Model):
 	duration = models.TimeField('duration')
 	arena = models.ForeignKey(Arena, on_delete=models.CASCADE)
 	team_home = models.ManyToManyField(User, related_name='home_team')
-	team_visitant = models.ManyToManyField(User, related_name='visitors')
+	team_visitor = models.ManyToManyField(User, related_name='visitors')
 	def played(self):
 		return date >= datetime.now()
 	def __str__(self):

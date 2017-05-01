@@ -10,7 +10,7 @@ from .constants import LOGIN_URL
 @login_required(login_url = LOGIN_URL)
 def index(request):
 	user = User.objects.filter(user=request.user).first()
-	matches = Match.objects.filter(Q(team_home=user) | Q(team_visitant=user)).distinct()[:5]
+	matches = Match.objects.filter(Q(team_home=user) | Q(team_visitor=user)).distinct()[:5]
 	return render(request, "pachangapp/index.html", {'matches': matches})
 @login_required(login_url = LOGIN_URL)
 def stats(request, usernameID=False):
@@ -32,6 +32,7 @@ def profile(request):
 			request.user.last_name = request.POST['last_name']
 			request.user.save()
 			user.known_as = request.POST['known_as']
+			user.country = request.POST['country']
 			user.save()
 			return redirect('pachangapp:profile')
 	else:

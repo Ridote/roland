@@ -21,7 +21,7 @@
 				<h3>Home</h3>
 			</div>
 			<div class="col-6">
-				<h3>Visitant</h3>
+				<h3>Visitors</h3>
 			</div>
 		</div>
 		<div class="row">
@@ -55,7 +55,7 @@
 				    </tr>
 				  </thead>
 				  <tbody class="color-green">
-				  	{% for player in match.team_visitant|all %}
+				  	{% for player in match.team_visitor|all %}
 				    <tr>
 				      <th scope="row">{{forloop.counter}}</th>
 				      <td>{{player.user.username|title}}</td>
