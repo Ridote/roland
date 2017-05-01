@@ -18,8 +18,6 @@ def stats(request, usernameID=False):
 		query = request.user.username
 	else:
 		query = usernameID
-	print(usernameID)
-	print("\n\n\n")
 	user = User.objects.filter(user__username=query).first()
 	return render(request, "pachangapp/stats.html", {'profUser': user})
 @login_required(login_url = LOGIN_URL)
