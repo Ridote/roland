@@ -35,7 +35,7 @@ def login(request):
 			return render(request, 'roland/login.html', {'error': error})
 	else:
 		return render(request, 'roland/login.html', {})
-@login_required
+@login_required(login_url=LOGIN_URL)
 def manual(request):
 	manual = Manual.objects.filter(title='Roland')
 	if(len(manual) > 0):

@@ -10,3 +10,5 @@ MODEL_CATEGORY_CONTENT_LENGTH = 16000
 INDEX_PUB_PER_PAGES = 5
 
 TIME_NOW = lambda:datetime.now()
+
+LOGIN_URL = '/roland/login/'

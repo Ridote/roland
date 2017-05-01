@@ -4,6 +4,18 @@ body{
 	background-attachment: fixed;
 	color: white;
 }
+
+audio{
+	display:none;
+}
+
+#main-container{
+	background: url('images/white-background.jpg') right bottom;
+	color: black;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
 #logo{
 	background: url('images/logo.png') right bottom;
 	background-repeat: no-repeat;
@@ -61,36 +73,33 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
 	height: 90px;
 }
 
-.menu-right a{
-	padding: 0px;
-}
-
-.form-blank-label{
-	min-height: 32px;
-}
-
-.publication{
-	margin-bottom: 20px;
-}
-
-.publication .pub_title{
-	color: #007b68;
-	border-bottom: 2px solid;
-}
-
-.separator-xs{
-	margin-bottom: 2px;
-}
-
-.separator-sm{
-	margin-bottom: 5px;
-}
-
 .underlined{
 	border-bottom: 2px solid;
 }
 
-.background-white {
-	background-color: white;
-	color: black;
+.separator-sm{
+	margin-bottom: 25px;
+}
+
+.separator-xs{
+	margin-bottom: 15px;
+}
+
+.color-green{
+	color: #006d00;
+}
+
+.btn-green{
+	background-color: #004000;
+	border-color: #001000;
+}
+
+.btn-green:hover{
+	background-color: #00AA00;
+	border-color: #001000;
+}
+
+.profile-image{
+	max-width: 150px;
+	max-height: 150px;
 }

@@ -2,32 +2,6 @@ from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 from django import forms
 from datetime import datetime
 from .models import *
-'''
-# Activamos el editor Summernote en campos especificos.
-class ContactoForm(forms.Form):
-	mensaje = forms.CharField(widget=SummernoteWidget())  # en lugar de forms.Textarea
-
-# Si no quieres usar un <iframe>, en tonces debes usar el widget inplace.
-# o si estás usando django-crispy-forms, debes usar:
-class ContactoForm(forms.Form):
-	mensaje = forms.CharField(widget=SummernoteInplaceWidget())
-'''
-
-
-'''
-	class ArticuloForm(forms.ModelForm):
-	    class Meta:
-	        model = Articulo
-	        widgets = {
-	            'foo': SummernoteWidget(),
-	            'bar': SummernoteInplaceWidget(),
-	        }
-
-
-
-	RECUERDA USAR {{ contenido|safe }}!!
-	https://openwebinars.net/blog/para-programadores-django-summernote-el-editor-wysiwyg-que-te-ahorrara-tiempo/        
-'''
 
 class PublicationForm(forms.ModelForm):
 	time = forms.TimeField(label=' ', input_formats=['%H:%M'], widget=forms.TimeInput(attrs={'class': 'form-control', 'type':'time'}))

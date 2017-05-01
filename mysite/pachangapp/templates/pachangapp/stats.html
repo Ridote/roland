@@ -1,0 +1,81 @@
+{% extends "pachangapp/basic_template.html" %}
+{% load pachangapp_template_tags %}
+{% block title %}PachangAPP{% endblock %}
+{% block stats %}
+<li class="nav-item active">
+  <a class="nav-link" href="{% url 'pachangapp:stats' %}">Stats <span class="sr-only">(current)</span></a>
+</li>
+{% endblock %}
+{% block content %}
+<audio autoplay="" controls="" preload="auto" loop="true" autobuffer>
+    <source src="/static/pachangapp/sounds/Fatboy-Slim-Funk-Soul-Brother.mp3" type="audio/mpeg">
+</audio>
+<div class="row"></div>
+<div class="row">
+	<div class="col-2"></div>
+	<div class="col-4">
+		<img class="profile-image" src="/static/pachangapp/images/users/{{profUser.user.username}}.jpg"/>
+	</div>
+	<div class="col-4">
+		<div class="row">User: {{profUser.user.username|title}}</div>
+		<div class="row">Name: {{profUser.user.first_name}}</div>
+		<div class="row">Surname: {{profUser.user.last_name}}</div>
+		<div class="row">Known as: {{profUser.known_as}}</div>
+	</div>
+	<div class="col-2"></div>
+</div>
+<div class="row">
+	<div class="col-2"></div>
+	<div class="col-8"><div id="container"></div></div>
+</div>
+<script>
+	Highcharts.chart('container', {
+
+    chart: {
+        polar: true,
+        type: 'line'
+    },
+
+    title: {
+        text: 'Player Stats',
+        x: -80
+    },
+
+    pane: {
+        size: '80%'
+    },
+
+    xAxis: {
+        categories: ['Atack', 'Defense', 'Sustain', 'Teamplay', 'Speed'],
+        tickmarkPlacement: 'on',
+        lineWidth: 0
+    },
+
+    yAxis: {
+        gridLineInterpolation: 'polygon',
+        lineWidth: 0,
+        min: 0,
+        max: 10
+    },
+
+    tooltip: {
+        shared: true,
+        pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}/10</b><br/>'
+    },
+
+    legend: {
+        align: 'right',
+        verticalAlign: 'top',
+        y: 70,
+        layout: 'vertical'
+    },
+
+    series: [{
+        name: '{{profUser.user.username}}',
+        data: [{{profUser.stats.atack}}, {{profUser.stats.defense}}, {{profUser.stats.sustain}}, {{profUser.stats.teamplay}}, {{profUser.stats.speed}}],
+        pointPlacement: 'on'
+    }]
+
+});
+</script>
+{% endblock %}

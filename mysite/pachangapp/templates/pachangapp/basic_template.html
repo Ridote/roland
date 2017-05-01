@@ -5,6 +5,7 @@
    <script src="{% static 'pachangapp/highcharts/highcharts.js' %}"></script>
    <script src="{% static 'pachangapp/highcharts/highcharts-more.js' %}"></script>
    <script src="{% static 'pachangapp/highcharts/modules/exporting.js' %}"></script>
+   <script src="{% static 'pachangapp/highcharts/themes/dark-unica.js' %}"></script>
    <script src="{% static 'pachangapp/tether/js/tether.min.js' %}"></script>
    <script src="{% static 'pachangapp/bootstrap/js/bootstrap.min.js' %}"></script>
    <link rel="stylesheet" href="{% static 'pachangapp/font-awesome/css/font-awesome.min.css' %}">
@@ -40,9 +41,14 @@
                </li>
                {% endblock %}
                {% if user.is_authenticated %}
-                  {% block newPublication %}
+                  {% block profile %}
                   <li class="nav-item">
-                     <a class="nav-link" href="{% url 'pachangapp:index' %}">New Publication</a>
+                     <a class="nav-link" href="{% url 'pachangapp:profile' %}">Profile</a>
+                  </li>
+                  {% endblock %}
+                  {% block stats %}
+                  <li class="nav-item">
+                     <a class="nav-link" href="{% url 'pachangapp:stats' %}">Stats</a>
                   </li>
                   {% endblock %}
                {% endif %}
