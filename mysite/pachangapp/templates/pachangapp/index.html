@@ -38,7 +38,7 @@
 				  	{% for player in match.team_home|all %}
 				    <tr>
 				      <th scope="row">{{forloop.counter}}</th>
-				      <td>{{player.user.username|title}}</td>
+				      <td><a href="{% url 'pachangapp:stats' player.user.username %}">{{player.user.username|title}}</a></td>
 				      <td>{{player.known_as|title}}</td>
 				    </tr>
 				    {% endfor %}
@@ -58,7 +58,7 @@
 				  	{% for player in match.team_visitor|all %}
 				    <tr>
 				      <th scope="row">{{forloop.counter}}</th>
-				      <td>{{player.user.username|title}}</td>
+				      <td><a href="{% url 'pachangapp:stats' player.user.username %}">{{player.user.username|title}}</a></td>
 				      <td>{{player.known_as|title}}</td>
 				    </tr>
 				    {% endfor %}
