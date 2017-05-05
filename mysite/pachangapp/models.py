@@ -22,6 +22,7 @@ class Stats(models.Model):
 	speed = models.PositiveSmallIntegerField()
 	def __str__(self):
 		return '(ATK:' + str(self.atack) + ', DEF:' + str(self.defense) + ', SUS:' + str(self.sustain) + ', TPL:' + str(self.teamplay) + ', SPD:' +  str(self.speed) + ')'
+
 class User(models.Model):
 	user = models.OneToOneField('auth.User', on_delete=models.CASCADE)
 	stats = models.OneToOneField(Stats, on_delete=models.CASCADE)
@@ -32,6 +33,7 @@ class User(models.Model):
         choices = MODEL_USER_COUNTRIES,
         default = 'ND'
     )
+	avatar = models.ImageField(blank=True, null=True)
 	def __str__(self):
 		return self.user.username.title() + " " + self.known_as
 class Match(models.Model):

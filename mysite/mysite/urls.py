@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
 	url(r'^shoppinglist/', include('shoppinglist.urls', namespace='shoppinglist', app_name='shoppinglist')),
     url(r'^roland/', include('roland.urls', namespace='roland', app_name='roland')),
@@ -23,3 +24,5 @@ urlpatterns = [
     url(r'^summernote/', include('django_summernote.urls')),
     url(r'^admin/', admin.site.urls),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

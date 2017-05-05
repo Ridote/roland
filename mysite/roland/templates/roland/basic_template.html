@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
    {% load static %}
    <script src="{% static 'roland/jquery/jquery.js' %}"></script>
@@ -12,6 +13,7 @@
    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=VT323" />
    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Aclonica" />
    <head>
+      <link rel="shortcut icon" href="{%  static 'roland/images/favicon/sword.ico' %}">
       <title>
          {% block title %}Page Title{% endblock %}
       </title>
@@ -73,7 +75,9 @@
             </span>
          </div>
       </nav>
-      <div id="main-container" class="container">
+      {% block content-wrapper %}
+         <div id="main-container" class="container">
+      {% endblock %}
       {% block content %}
          Body content
       {% endblock %}
