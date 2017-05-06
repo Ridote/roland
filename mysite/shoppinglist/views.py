@@ -15,7 +15,6 @@ def addProduct(request):
 		if form.is_valid():
 			product = form.save(commit=False)
 			product.requester = request.user
-			#product.predefinedProduct = PredefinedProduct.objects.filter(name=product.predefinedProduct)
 			product.save()
 			return redirect('shoppinglist:addProduct')
 	else:
