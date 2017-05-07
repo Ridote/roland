@@ -21,14 +21,16 @@ class ProductForm(forms.ModelForm):
 	def __init__(self, *args, **kwargs):
 		super(ProductForm, self).__init__(*args, **kwargs)
 		self.fields['quantity'].label = "Product quantity"
+		self.fields['quantity'].initial = MODEL_PRODUCT_MIN_QUANTITY
 		self.fields['predefinedProduct'].label = "Product name"
 		self.fields['unit'].label = "Product meassurement unit"
+		self.fields['unit'].initial = 3
 		self.fields['comment'].label = "Comment"
 	class Meta:
 		model = Product
 		fields = ('predefinedProduct', 'quantity', 'unit', 'comment')
 		widgets = {
-			'quantity': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter quantity', 'value': MODEL_PRODUCT_MIN_QUANTITY,'min': MODEL_PRODUCT_MIN_QUANTITY, 'max': MODEL_PRODUCT_MAX_QUANTITY}),
+			'quantity': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter quantity', 'min': MODEL_PRODUCT_MIN_QUANTITY, 'max': MODEL_PRODUCT_MAX_QUANTITY}),
 			'comment': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Comment', 'max': MODEL_PRODUCT_MAX_COMMENT})
 		}
 class CategoryForm(forms.ModelForm):
